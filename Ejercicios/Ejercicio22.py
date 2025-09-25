@@ -9,5 +9,5 @@ while not primo:
         if numprimo % x == 0:
             primo = False
             break
-    primo = True
+        primo = True
 print(f"{numprimo}")
