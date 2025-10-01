@@ -58,7 +58,8 @@ for n in texto:
     if not n.isspace():
         newTexto+=n
 print(newTexto)
-print(texto.replace(' ',''))
+print(texto.replace(' ',''))  #remplazar todos
+print(texto.replace(' ','',2))  #remplazar solo primeros tantos
 
 i=0
 while (i < 10): #los parentesis no son obligatorios
@@ -72,6 +73,39 @@ pi=3.141592
 print(round(pi,2))
 print(round(pi,3))
 print(round(pi,4))
+
+texto2="Hola Mundo"
+print(texto2[::-1])
+print(texto2[1])
+print(texto2[1:3])
+print(texto2[1:6:2])
+
+texto3="Hola","Mundo","Xd"  #Esto es una tupla es una coleccion unica de python
+
+texto4=f"hola mundo {3} {texto2}"
+
+for char in texto2:
+    print(char)
+
+print(texto2.upper()) #Mayuscula
+print(texto2.lower())  #Minuscula
+print(texto2.swapcase())  #Cambair Minuscula*Mayuscula
+print(texto2.find("o"))    #Busca el 1er indice de lo que se busca
+print(texto2.find("H"))
+print(texto2.find("Hol"))
+print(texto2.find("o",4))   #lo de arriba pero se indica desde donde empezar
+print(texto2.count("o"))  #cuantas veces aparece lo q se busca
+
+num=3
+match num:
+    case 2:
+        print("a")
+    case 3 | 4:   #un valor o el otro
+        print("b")
+    case _:   #defecto
+        print("Por defecto")
+
+ # a*b if a*b>0 else 0   Operador ternario
 
 #Esto es un comentario linea
 '''
