@@ -5,4 +5,5 @@ import random
 numeros=[]
 for i in range(0,6):
     numeros.append(random.randint(1,49))
+print("Los números de la lotería son:","".join(str(x) for x in numeros)) #otra manera de nombre
 print("Los números de la lotería son:",numeros)

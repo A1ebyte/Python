@@ -1,3 +1,6 @@
+from mercurial.fileset import removed
+from mpmath import extend
+
 edad=56
 print(edad)
 edad='doce'
@@ -113,3 +116,49 @@ comentario
 de 
 bloque
 '''
+
+if "Hola">"Holo":
+    print("Hola es mayor")
+else:
+    print("Holo es mayor")
+
+#Listas se pueden modificar, las tuplas no
+lista1=[]
+lista2=list()
+lista3=[1,2,3,4,5,5]
+lista4=["eva","adam","moha"]
+lista5=[1,"2",3,"4",False,5,"Perez",[1,2,3],4.56]
+lista6=[0,54,4,5111,2,124,8,21454,24,54]
+
+
+lista5=lista1+lista2
+print(lista5)
+
+lista5.extend(list+lista3)
+print(lista5++lista4)
+
+lista5.append(10)
+lista3.insert(1,333)
+ele=lista5.pop()
+lista5.removed("eva")
+lista3.sorted(reverse=True)
+print(lista2)
+
+if 5 in lista1:
+    print("si")
+    print("Aparece",lista1.count(1),"veces")
+    print("Aparece", lista1.index(1), "veces") #tira error si no esta en la lista
+else:
+    print("no")
+
+text001="Hola Mundo Cruel"
+lista7=list(text001)
+print(lista7)
+text002=str(lista7)
+print(text002)
+
+lista8=lista1[::-1]
+print(lista8)
+print(random.choice(lista4))   #elige aleatoriamente de la lista
+print(random.sample(lista4,2))  #2 elementos random que no se repiten
+random.shuffle(lista4) #desordena la lista
