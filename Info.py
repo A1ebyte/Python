@@ -1,6 +1,3 @@
-from mercurial.fileset import removed
-from mpmath import extend
-
 edad=56
 print(edad)
 edad='doce'
@@ -117,6 +114,11 @@ de
 bloque
 '''
 
+print("123".isdigit())
+print("12ad".isdigit())
+print("123".isalpha())
+print("12ad".isalpha())
+
 if "Hola">"Holo":
     print("Hola es mayor")
 else:
@@ -134,15 +136,19 @@ lista6=[0,54,4,5111,2,124,8,21454,24,54]
 lista5=lista1+lista2
 print(lista5)
 
-lista5.extend(list+lista3)
-print(lista5++lista4)
+lista5.extend(lista3)
+print(lista5+lista4)
 
 lista5.append(10)
+print(lista5)
 lista3.insert(1,333)
+print(lista3)
 ele=lista5.pop()
-lista5.removed("eva")
-lista3.sorted(reverse=True)
+lista5.remove(1)
+lista3.sort(reverse=True)
 print(lista2)
+print(lista5)
+
 
 if 5 in lista1:
     print("si")
@@ -155,7 +161,7 @@ text001="Hola Mundo Cruel"
 lista7=list(text001)
 print(lista7)
 text002=str(lista7)
-print(text002)
+print("".join(lista7))
 
 lista8=lista1[::-1]
 print(lista8)
