@@ -116,7 +116,7 @@ bloque
 
 print("123".isdigit())
 print("12ad".isdigit())
-print("123".isalpha())
+print("asd".isalpha())
 print("12ad".isalpha())
 
 if "Hola">"Holo":
@@ -161,6 +161,7 @@ text001="Hola Mundo Cruel"
 lista7=list(text001)
 print(lista7)
 text002=str(lista7)
+print(text002)
 print("".join(lista7))
 
 lista8=lista1[::-1]
