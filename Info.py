@@ -162,7 +162,7 @@ lista7=list(text001)
 print(lista7)
 text002=str(lista7)
 print(text002)
-print("".join(lista7))
+print("-".join(lista7))
 
 lista8=lista1[::-1]
 print(lista8)
