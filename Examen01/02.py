@@ -7,4 +7,5 @@ for x in range(0,len(texto)):
     letra=random.choice(listaTexto)
     nuevoTexto+=letra
     listaTexto.remove(letra)
+#podias hacerlo usando un shufle
 print(f"Resultado: {nuevoTexto}")
