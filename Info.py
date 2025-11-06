@@ -1,3 +1,7 @@
+from logging import exception
+
+from zope.interface.common.interfaces import IZeroDivisionError
+
 edad=56
 print(edad)
 edad='doce'
@@ -49,6 +53,9 @@ for n in range(10,0,-1): #recorrer for hacia atras
 
 for n in "Hola bitch": #recorrer for hacia atras
     print(n)
+
+for i, nombre in enumerate("Patata"):
+    print(f"{i} - {nombre}")
 
 print("Hola Mundo")
 
@@ -140,6 +147,7 @@ lista5.extend(lista3)
 print(lista5+lista4)
 
 lista5.append(10)
+listaCopy= lista5.copy()
 print(lista5)
 lista3.insert(1,333)
 print(lista3)
@@ -169,3 +177,56 @@ print(lista8)
 print(random.choice(lista4))   #elige aleatoriamente de la lista
 print(random.sample(lista4,2))  #2 elementos random que no se repiten
 random.shuffle(lista4) #desordena la lista
+
+#tuplas y conjuntos en github de kerin
+
+#Para crear metodos/ funciones se hace
+def miFuncion():
+    print("hola")
+
+def miFuncionMsj(mensaje):
+    print(mensaje)
+
+def miFuncionSaludo(nombre,mesj):
+    print(f"Hola {nombre}, {mesj}")
+
+def miFuncionReturn():
+    return "See You Later Alligator"
+
+def miFuncionTodosArgQuequiera(*Num):
+    for x in Num:
+        print(x)
+
+def miFuncionReturnVarios():
+    return "If you're lucky, rubber ducky!","Sayōnara, carbonara!"
+
+miFuncion()
+miFuncionMsj("Pepe Grillo hola")
+n1,n2=miFuncionReturnVarios()
+nn,nm,nj=(1,22,3)
+print(nn,nm,nj)
+print(miFuncionSaludo("Pepep","Ktal"))
+print(miFuncionSaludo(mesj="que tal",nombre="KK"))
+print(miFuncionReturn())
+print(n1,n2,sep="\n")
+#print(" ".join(miFuncionReturnVarios()))
+
+while True:
+    try:
+        numtry=int(input("Escribe num: "))
+        resultry=10/numtry
+        assert numtry>=0,"no admito numeros q no son positivos"
+        """if numtry<0:
+            raise Exception("No entero pos")"""
+    except ZeroDivisionError:
+        print("no se puede divir entre 0")
+    except ValueError:
+        print("error valor")
+    except:
+        print("error no se")
+    else:
+        print(resultry)
+        print("ok")
+        break
+    finally:
+        print("fin")
