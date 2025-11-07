@@ -1,7 +1,3 @@
-from logging import exception
-
-from zope.interface.common.interfaces import IZeroDivisionError
-
 edad=56
 print(edad)
 edad='doce'
@@ -16,14 +12,6 @@ print(2**2) #elevado
 
 nuevo=(precio + 5) * MESES_ANO
 print(nuevo)
-
-texto="hola"
-texto+=" "+"mundo"
-texto = texto+" o_0"
-print(texto)
-print(texto, edad, precio)
-print(texto, edad, precio, end=" ***\n") #end cambia el ultimo character por el que pones ahi en este caso el \n y evita el salto de linea del siguiente print
-print(texto, edad, precio, sep=" *** ") #sep cambia el separador que pone entre las variables con coma
 
 numero='12'
 numero= int(numero) +1 #casteo
@@ -51,22 +39,11 @@ for n in range(0,10,2): #aqui el tercer valor es la cantidad de pasos que da
 for n in range(10,0,-1): #recorrer for hacia atras
     print(n)
 
-for n in "Hola bitch": #recorrer for hacia atras
+for n in "Hola bitch"[::-1]: #recorrer for hacia atras
     print(n)
 
 for i, nombre in enumerate("Patata"):
     print(f"{i} - {nombre}")
-
-print("Hola Mundo")
-
-texto=input("\ndime algo: ")
-newTexto=""
-for n in texto:
-    if not n.isspace():
-        newTexto+=n
-print(newTexto)
-print(texto.replace(' ',''))  #remplazar todos
-print(texto.replace(' ','',2))  #remplazar solo primeros tantos
 
 i=0
 while (i < 10): #los parentesis no son obligatorios
@@ -80,28 +57,6 @@ pi=3.141592
 print(round(pi,2))
 print(round(pi,3))
 print(round(pi,4))
-
-texto2="Hola Mundo"
-print(texto2[::-1])
-print(texto2[1])
-print(texto2[1:3])
-print(texto2[1:6:2])
-
-texto3="Hola","Mundo","Xd"  #Esto es una tupla es una coleccion unica de python
-
-texto4=f"hola mundo {3} {texto2}"
-
-for char in texto2:
-    print(char)
-
-print(texto2.upper()) #Mayuscula
-print(texto2.lower())  #Minuscula
-print(texto2.swapcase())  #Cambair Minuscula*Mayuscula
-print(texto2.find("o"))    #Busca el 1er indice de lo que se busca
-print(texto2.find("H"))
-print(texto2.find("Hol"))
-print(texto2.find("o",4))   #lo de arriba pero se indica desde donde empezar
-print(texto2.count("o"))  #cuantas veces aparece lo q se busca
 
 num=3
 match num:
@@ -120,16 +75,6 @@ comentario
 de 
 bloque
 '''
-
-print("123".isdigit())
-print("12ad".isdigit())
-print("asd".isalpha())
-print("12ad".isalpha())
-
-if "Hola">"Holo":
-    print("Hola es mayor")
-else:
-    print("Holo es mayor")
 
 #Listas se pueden modificar, las tuplas no
 lista1=[]
@@ -179,54 +124,3 @@ print(random.sample(lista4,2))  #2 elementos random que no se repiten
 random.shuffle(lista4) #desordena la lista
 
 #tuplas y conjuntos en github de kerin
-
-#Para crear metodos/ funciones se hace
-def miFuncion():
-    print("hola")
-
-def miFuncionMsj(mensaje):
-    print(mensaje)
-
-def miFuncionSaludo(nombre,mesj):
-    print(f"Hola {nombre}, {mesj}")
-
-def miFuncionReturn():
-    return "See You Later Alligator"
-
-def miFuncionTodosArgQuequiera(*Num):
-    for x in Num:
-        print(x)
-
-def miFuncionReturnVarios():
-    return "If you're lucky, rubber ducky!","Sayōnara, carbonara!"
-
-miFuncion()
-miFuncionMsj("Pepe Grillo hola")
-n1,n2=miFuncionReturnVarios()
-nn,nm,nj=(1,22,3)
-print(nn,nm,nj)
-print(miFuncionSaludo("Pepep","Ktal"))
-print(miFuncionSaludo(mesj="que tal",nombre="KK"))
-print(miFuncionReturn())
-print(n1,n2,sep="\n")
-#print(" ".join(miFuncionReturnVarios()))
-
-while True:
-    try:
-        numtry=int(input("Escribe num: "))
-        resultry=10/numtry
-        assert numtry>=0,"no admito numeros q no son positivos"
-        """if numtry<0:
-            raise Exception("No entero pos")"""
-    except ZeroDivisionError:
-        print("no se puede divir entre 0")
-    except ValueError:
-        print("error valor")
-    except:
-        print("error no se")
-    else:
-        print(resultry)
-        print("ok")
-        break
-    finally:
-        print("fin")
