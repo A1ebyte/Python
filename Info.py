@@ -32,6 +32,9 @@ if 5 in lista1:
 else:
     print("no")
 
+partes = ["tres 0", "un 1", "un 2", "un 5", "dos 8"]
+print(partes[-1])  #imprime el ultimo valor
+
 text001="Hola Mundo Cruel"
 lista7=list(text001)
 print(lista7)

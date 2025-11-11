@@ -2,7 +2,7 @@ conjunto1 = {"Ana","Pedro","Luis","Eva","Ana"}#* no lo almacena por orden, van v
 #No permite tener dos mismas variables
 print(conjunto1)
 lista=["Ana","Pedro","Luis","Eva","Ana"]
-conjunto2 = set(lista) # Otra forma de llamar y combierte una lista en un conjunto
+conjunto2 = set(lista) #{lista} # Otra forma de llamar y combierte una lista en un conjunto
 print(conjunto2)
 
 for nombre in conjunto1:# Se recorrer el conjunto asi
@@ -27,6 +27,7 @@ print(conjunto1)
 
 profesPrimero = {"Natalia","José María","Pedro","Yago"}
 profesSegundo =  {"José María","Agustín","Puche","Pedro"}
+print(sorted(profesSegundo)) #con sorted los ordenamos
 print(profesPrimero & profesSegundo) #* intercepción, nos devuelve los dos profesores repitos en el conjunto, los comunes
 print(profesPrimero | profesSegundo)#* la unión consegui todos pero se consigue una ves
 print(profesSegundo - profesPrimero)#* la diferencia

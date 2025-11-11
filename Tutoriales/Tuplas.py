@@ -29,3 +29,7 @@ print(tupla7) #* se puede modificar el contenido de la lista que hay dentro de l
 print(tupla7[-2]) #*admite las referencia negativas, como una lista
 tupla7[4][0] = 23 #* permite modificar esa lista dentro de la tupla
 print(tupla7[4])
+
+thistuple = (1, 3, 7, 8, 7, 5, 4, 6, 8, 5)
+x = thistuple.count(5)
+print(x)

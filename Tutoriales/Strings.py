@@ -27,6 +27,9 @@ for char in texto2:
 for n in texto2[::-1]:
     print(n)
 
+for n in texto2[-6::-1]:
+    print(1,n)
+
 print(texto2.upper()) #Mayuscula
 print(texto2.lower())  #Minuscula
 print(texto2.swapcase())  #Cambair Minuscula*Mayuscula
