@@ -61,3 +61,11 @@ if "Hola">"Holo":
     print("Hola va despues Holo")
 else:
     print("Holo va despues que Hola")
+
+cadena = "1010101"
+solo_binario = all(c in '01' for c in cadena)
+print(solo_binario)  # True
+
+palabras = ["python", "java", "html", "css", "C"]
+largas = [p for p in palabras if len(p) > 3 and p.islower()]
+print(largas)  # ['python', 'java', 'html', 'css']
