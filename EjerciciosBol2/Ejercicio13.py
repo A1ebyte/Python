@@ -3,14 +3,14 @@ necesites pero que cuando aciertes te informe de cuantas veces has fallado antes
 lograrlo
 """
 import random
-intentos=5
+intentos=0
 adivinar=random.randint(1,50)
 adivine=False
 print(adivinar)
-while intentos > 0 and adivine==False:
-    intentos -= 1
+while not adivine:
+    intentos += 1
     opcion=int(input("Ingrese tu adivinanza: "))
     print("Te pasaste")if adivinar < opcion else print("Te quedaste corto") if adivinar>opcion else None
     if opcion==adivinar:
         adivine=True
-print("Adivinaste Felicidades" if adivine else "Mejor suerte la proxima")
+print(f"Adivinaste Felicidades y has tardado: {intentos} intentos")
