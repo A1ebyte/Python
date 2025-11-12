@@ -5,15 +5,17 @@ def validarMAC(dato):
             listaDatos = str(dato).upper().split(":")
             assert len(listaDatos) == 6
             for car in listaDatos:
-                if len(car) != 2 and (n for n in car) not in LETRAS and not str(car).isdigit():
+                if len(car) != 2 or not all(c in LETRAS or c.isdigit() for c in car):
                     return False
         elif str(dato).count(".") > 0 and str(dato).count(":") == 0:
             listaDatos = str(dato).upper().split(".")
             assert len(listaDatos) == 3
             for car in listaDatos:
-                if len(car) != 4 and (n for n in car) not in LETRAS and not str(car).isdigit():
+                if len(car) != 4:
                     return False
-
+                for c in car:
+                    if c not in LETRAS and not c.isdigit():
+                        return False
         else:
             raise Exception
     except:
