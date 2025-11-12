@@ -24,7 +24,7 @@ for n in range(10,0,-1): #recorrer for hacia atras
 for n in "Hola bitch"[::-1]: #recorrer for hacia atras
     print(n)
 
-for i, nombre in enumerate("Patata"):
+for i, nombre in enumerate("Patata"): #el enumerate lo convierte en pares (índice, valor), el i seria el primer elementode la tupla y el nombre el segundo
     print(f"{i} - {nombre}")
 
 i=0

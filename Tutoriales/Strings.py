@@ -43,6 +43,7 @@ print(texto2.find("o",4))   #lo de arriba pero se indica desde donde empezar
 print(texto2.count("o"))  #cuantas veces aparece lo que se busca
 print("h o l a".split(" ")) #crea una lista apartir del separador
 print("h o l a a d i o s".split(" ",4)) #decidimos cuantes veces se puede separar
+print("h o l a a d i o s".split(" ",2)) #decidimos cuantes veces se puede separar desde el final
 print("5".zfill(4)) #rellena el string a la izquierda con 0 hasta llegar a la longitud
 print("    0-o    ".strip()) #remueve todos los characters vacios al inicio y final, pones uno hay y removera esos
 print("-    0-o    -".strip("-"))

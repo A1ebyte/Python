@@ -45,4 +45,3 @@ print("-".join(lista7))
 numeros = [1, 0, 1, 1, 0, 1]
 resultado = ''.join(str(n) for n in numeros)
 print(resultado)  # '101101'
-#tuplas y conjuntos en github de kerin
