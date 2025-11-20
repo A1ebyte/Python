@@ -16,3 +16,7 @@ MESES_ANO=12 #Noexisten constantes en python pero se escribe en Mayuscula y los 
 numero='12'
 numero= int(numero) +1 #casteo
 print(numero)
+
+#si es una instancia del objeto
+if isinstance("sd",str): print("texto")
+if not isinstance(5.5,int): print("no entero")
