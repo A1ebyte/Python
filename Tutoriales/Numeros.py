@@ -24,3 +24,5 @@ print(sum([5,5,5,6]))
 numeros = [1, 2, 3, 4, 5, 6]
 pares = [n for n in numeros if n % 2 == 0]
 print(pares)  # [2, 4, 6]
+
+int("1") #pasa de string a integer/parseint

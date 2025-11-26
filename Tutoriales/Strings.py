@@ -9,6 +9,9 @@ print("Hola", "mundo", "cruel",sep="-")
 #para cambiar el ultimo caracter hay que poner end en defecto es \n
 print("Hola", "mundo", "cruel",end=" ^w^\n")
 
+#pasa el valor a String
+str(123)
+
 texto2="Hola Mundo"
 print(texto2[::-1]) #Para mostra el string al revés
 print(texto2[1]) #elegir el character en esa posición
@@ -73,3 +76,11 @@ print(solo_binario)  # True
 palabras = ["python", "java", "html", "css", "C"]
 largas = [p for p in palabras if len(p) > 3 and p.islower()]
 print(largas)  # ['python', 'java', 'html', 'css']
+
+#Devuelve true o false si todos cumplen la condicion
+print(all(c in '01' for c in "01001"))
+print(all(c in '01' for c in "0121"))
+
+#Devuelve true o false si alguno cumple la condicion
+print(any(c in '2' for c in "0121"))
+print(any(c in '2' for c in "01011"))

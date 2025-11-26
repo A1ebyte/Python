@@ -34,6 +34,10 @@ def muestraProfe(*nombres): #Meter un número de variable posible
     print(nombres) #los muestra como tupla
 
 muestraProfe("Pedro","José María","Ana","Puche")
+num=[1,2,33,4,5,6,7,8,9]
+miFuncionTodosArgQuequiera(*num)
+
+#para hacer spread en python se hace *lista (lo mismo que en js el ...lista)
 
 #Tambien puede devolver mas de un valor
 def miFuncionReturnVarios():
