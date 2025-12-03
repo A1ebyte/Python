@@ -85,3 +85,4 @@ print(Poke3)"""
 while Poke1.checkHp() and Poke2.checkHp():
     Poke1.ataca(Poke2)
     Poke2.ataca(Poke1)
+print("Combate finalizado")
