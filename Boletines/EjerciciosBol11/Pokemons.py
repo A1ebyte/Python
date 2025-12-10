@@ -14,21 +14,43 @@ evolucione en otro diferente. Para ello si un pokemon puede evolucionar en otro 
 tener de alguna forma una referencia al pokemon en el que evoluciona.
 """
 import random
+from enum import Enum
 
-from sympy import false
-
+class PokemonTipo(Enum):
+    NORMAL = "Normal"
+    AGUA = "Agua"
+    FUEGO = "Fuego"
+    PLANTA = "Planta"
+    VOLADOR = "Volador"
+    LUCHA = "Lucha"
+    VENENO = "Veneno"
+    ELECTRICO = "Eléctrico"
+    TIERRA = "Tierra"
+    ROCA = "Roca"
+    PSIQUICO = "Psíquico"
+    HIELO = "Hielo"
+    BICHO = "Bicho"
+    FANTASMA = "Fantasma"
+    DRAGON = "Dragón"
 
 class Pokemon:
-    def __init__(self,nombre,codigo,evolucion=None):
-        self.__nombre=nombre
-        self.__codigo=codigo
-        self.__evolucion=evolucion
+    def __init__(self,nombre,codigo,*tipos,evolucion=None):
+        if 1 > codigo or codigo > 151: raise ValueError("Código fuera de rango.")
+        if not all(isinstance(tipo,PokemonTipo) for tipo in tipos): raise ValueError("Tipo no valido.")
+        if len(tipos)>2: raise ValueError("Solo puede tener maximo 2 tipos")
+        self.__nombre = nombre
+        self.__codigo = codigo
+        self.__tipos = tipos
+        self.__evolucion = evolucion
         self.__Hp = random.randint(50, 100)
 
 #region Properties
     @property
     def evolucion(self):
         return self.__evolucion
+    @property
+    def tipos(self):
+        return self.__tipos
     @property
     def nombre(self):
         return self.__nombre
@@ -48,7 +70,8 @@ class Pokemon:
         return self.evolucion
 
     def __str__(self):
-        return (f"Codigo: {str(self.codigo).zfill(3)}\nNombre: {self.nombre}\n"
+        tipos_str = ", ".join(t.value for t in self.tipos)
+        return (f"Codigo: {str(self.codigo).zfill(3)}\nNombre: {self.nombre}\nTipo: {tipos_str}\n"
                 f"{'' if self.evolucion is None else f"Evolucion: {self.evolucion.nombre}\n"}HP: {self.Hp}\n")
 
     def ataca(self,adversario):
@@ -69,9 +92,9 @@ class Pokemon:
         return True
     #endregion
 
-Poke3=Pokemon("Charizard",3)
-Poke2=Pokemon("Charmeleon",2,Poke3)
-Poke1=Pokemon("Charmander",1,Poke2)
+Poke3=Pokemon("Charizard",3,PokemonTipo.FUEGO)
+Poke2 = Pokemon("Charmeleon", 2, PokemonTipo.FUEGO, Poke3)
+Poke1=Pokemon("Charmander",1,(PokemonTipo.FUEGO,PokemonTipo.VOLADOR),Poke2)
 
 print(Poke1)
 print(Poke2)
