@@ -34,13 +34,14 @@ class PokemonTipo(Enum):
     DRAGON = "Dragón"
 
 class Pokemon:
-    def __init__(self,nombre,codigo,*tipos,evolucion=None):
+    def __init__(self,nombre,codigo,tipo1,tipo2=None,evolucion=None):
         if 1 > codigo or codigo > 151: raise ValueError("Código fuera de rango.")
-        if not all(isinstance(tipo,PokemonTipo) for tipo in tipos): raise ValueError("Tipo no valido.")
-        if len(tipos)>2: raise ValueError("Solo puede tener maximo 2 tipos")
+        if not isinstance(tipo1,PokemonTipo): raise ValueError("Tipo no valido.")
+        if tipo2 is not None:
+            if not isinstance(tipo2, PokemonTipo): raise ValueError("Tipo no valido.")
         self.__nombre = nombre
         self.__codigo = codigo
-        self.__tipos = tipos
+        self.__tipos = [tipo1] if tipo2 is None else [tipo1, tipo2]
         self.__evolucion = evolucion
         self.__Hp = random.randint(50, 100)
 
@@ -92,9 +93,9 @@ class Pokemon:
         return True
     #endregion
 
-Poke3=Pokemon("Charizard",3,PokemonTipo.FUEGO)
-Poke2 = Pokemon("Charmeleon", 2, PokemonTipo.FUEGO, Poke3)
-Poke1=Pokemon("Charmander",1,(PokemonTipo.FUEGO,PokemonTipo.VOLADOR),Poke2)
+Poke3=Pokemon("Charizard",3,tipo1=PokemonTipo.FUEGO,tipo2=PokemonTipo.VOLADOR)
+Poke2 = Pokemon("Charmeleon", 2, tipo1=PokemonTipo.FUEGO, evolucion=Poke3)
+Poke1=Pokemon("Charmander",1,tipo1=PokemonTipo.FUEGO,evolucion=Poke2)
 
 print(Poke1)
 print(Poke2)
