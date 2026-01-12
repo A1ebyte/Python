@@ -108,3 +108,46 @@ else:
     print("No es valido")
 
 patron4=r"[^579]" #* prohibe cualquier caracter de lo siguientes
+
+
+
+
+"""
+| Cuantificador | Significado          | Ejemplo  | Coincide con                         |
+| ------------- | -------------------- | -------- | ------------------------------------ |
+| `?`           | 0 o 1 vez (opcional) | `a?`     | `""` o `"a"`                         |
+| `*`           | 0 o más veces        | `a*`     | `""`, `"a"`, `"aa"`, `"aaa"`         |
+| `+`           | 1 o más veces        | `a+`     | `"a"`, `"aa"`, `"aaa"` (no `""`)     |
+| `{n}`         | Exactamente n veces  | `a{3}`   | `"aaa"`                              |
+| `{n,}`        | Al menos n veces     | `a{2,}`  | `"aa"`, `"aaa"`, `"aaaa"`            |
+| `{n,m}`       | Entre n y m veces    | `a{2,4}` | `"aa"`, `"aaa"`, `"aaaa"` (no `"a"`) |
+
+? → opcional, 0 o 1 vez
+* → cualquier número, incluso cero
++ → al menos una vez
+{n,m} → repeticiones exactas o en rango
+() → agrupa para repetir bloques o alternancia
+| → “o” lógico, funciona mejor con paréntesis para agrupar varias opciones
+"""
+
+# ? → opcional
+print(bool(re.match(r"a?", "a")))    # True
+print(bool(re.match(r"a?", "")))     # True
+
+# * → 0 o más
+print(bool(re.match(r"a*", "aaa")))  # True
+
+# + → 1 o más
+print(bool(re.match(r"a+", "")))     # False
+
+# {n,m} → entre n y m
+print(bool(re.match(r"a{2,4}", "aaa")))  # True
+
+# () + cuantificador
+print(bool(re.match(r"(ab){2}", "abab")))  # True
+
+# | → alternancia
+print(bool(re.match(r"a|b", "a")))  # True
+
+# () + | → grupo alternativo
+print(bool(re.match(r"(abc|de){2}", "abcde")))  # True
