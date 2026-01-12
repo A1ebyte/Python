@@ -16,3 +16,74 @@ ellos repetido debería de advertirnos
 - También necesitaremos una funcion que nos permita eliminar un número (lo hemos perdido,
 etc.). Si tratamos de eliminar un número que no tenemos debería de advertírsenos
 """
+from enum import Enum
+
+class MangaGenero(Enum):
+    shonen="Shonen"
+    shojo="Shojo"
+    seinen="Seinen"
+    josei="Josei"
+    kodomo="Kodomo"
+    yuri="Yuri"
+    spokon="Spokon"
+    isekai="Isekai"
+    hentai="Hentai"
+
+
+class ColeccionManga:
+    def __init__(self, autor,titulo,genero,ultimaPublicacion,*tomos,tituloCastellano=None):
+        if not isinstance(genero,MangaGenero): raise ValueError("Genero no valido.")
+        self.__tomos=list(tomos)
+        self.__autor = autor
+        self.__genero = genero
+        self.__titulo=titulo
+        self.__ultimaPublicacion = ultimaPublicacion
+        self.__tituloCastellano = tituloCastellano
+
+    # region Properties
+    @property
+    def autor(self):
+        return self.__autor
+
+    @property
+    def genero(self):
+            return self.__genero
+
+    @property
+    def titulo(self):
+            return self.__titulo
+
+    @property
+    def tomos(self):
+            return self.__tomos
+
+    @property
+    def ultimaPublicacion(self):
+        return self.__ultimaPublicacion
+    @ultimaPublicacion.setter
+    def ultimaPublicacion(self,valor):
+        self.__ultimaPublicacion = valor
+
+    @property
+    def tituloCastellano(self):
+        return self.__tituloCastellano
+    @tituloCastellano.setter
+    def tituloCastellano(self,valor):
+        self.__tituloCastellano = valor
+    # endregion0
+
+    #region Funciones
+    def cuantosFaltanParaCompletar(self):
+        if self.evolucion is None:   #self.__evolucion==None:
+            print("No evoluciono, ya soy todo poderoso")
+            return self
+        return self.evolucion
+
+    def agregarAColeccion(self):
+        tipos_str = ", ".join(t.value for t in self.tipos)
+        return (f"Codigo: {str(self.codigo).zfill(3)}\nNombre: {self.nombre}\nTipo: {tipos_str}\n"
+                f"{'' if self.evolucion is None else f"Evolucion: {self.evolucion.nombre}\n"}HP: {self.Hp}\n")
+
+    #endregion
+
+manga=ColeccionManga("yuyo ito","Uzumaki",MangaGenero.shojo,6,1,2,4)
