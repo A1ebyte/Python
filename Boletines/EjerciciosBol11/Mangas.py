@@ -19,26 +19,27 @@ etc.). Si tratamos de eliminar un número que no tenemos debería de advertírse
 from enum import Enum
 
 class MangaGenero(Enum):
-    shonen="Shonen"
-    shojo="Shojo"
-    seinen="Seinen"
-    josei="Josei"
-    kodomo="Kodomo"
-    yuri="Yuri"
-    spokon="Spokon"
-    isekai="Isekai"
-    hentai="Hentai"
-
+    shonen = "Shonen"
+    shojo = "Shojo"
+    seinen = "Seinen"
+    josei = "Josei"
+    kodomo = "Kodomo"
+    yuri = "Yuri"
+    spokon = "Spokon"
+    isekai = "Isekai"
+    hentai = "Hentai"
 
 class ColeccionManga:
-    def __init__(self, autor,titulo,genero,ultimaPublicacion,*tomos,tituloCastellano=None):
-        if not isinstance(genero,MangaGenero): raise ValueError("Genero no valido.")
-        self.__tomos=list(tomos)
+    def __init__(self, autor, titulo, genero, ultimaPublicacion, *tomos, tituloCastellano=None):
+        if not isinstance(genero, MangaGenero): raise ValueError("Genero no válido.")
+
         self.__autor = autor
+        self.__titulo = titulo
         self.__genero = genero
-        self.__titulo=titulo
         self.__ultimaPublicacion = ultimaPublicacion
         self.__tituloCastellano = tituloCastellano
+        self.__tomos = list(set(tomos))  # evitamos duplicados iniciales
+        self.__tomos.sort()
 
     # region Properties
     @property
@@ -47,43 +48,67 @@ class ColeccionManga:
 
     @property
     def genero(self):
-            return self.__genero
+        return self.__genero
 
     @property
     def titulo(self):
-            return self.__titulo
+        return self.__titulo
 
     @property
     def tomos(self):
-            return self.__tomos
+        return self.__tomos.copy()
 
     @property
     def ultimaPublicacion(self):
         return self.__ultimaPublicacion
     @ultimaPublicacion.setter
-    def ultimaPublicacion(self,valor):
+    def ultimaPublicacion(self, valor):
+        if valor < 1:
+            raise ValueError("La última publicación debe ser mayor que 0")
         self.__ultimaPublicacion = valor
 
     @property
     def tituloCastellano(self):
         return self.__tituloCastellano
     @tituloCastellano.setter
-    def tituloCastellano(self,valor):
+    def tituloCastellano(self, valor):
         self.__tituloCastellano = valor
-    # endregion0
+    # endregion
 
-    #region Funciones
+    # region Funciones
+    def agregarAColeccion(self, *numeros):
+        for numero in numeros:
+            if numero in self.tomos:
+                print(f"El tomo {numero} ya está en la colección.")
+                continue
+            if numero > len(self.tomos) or numero < 0:
+                print(f"El tomo {numero} no está en el rango de la colección.")
+                continue
+            self.tomos.append(numero)
+
+        self.tomos.sort()
+
     def cuantosFaltanParaCompletar(self):
-        if self.evolucion is None:   #self.__evolucion==None:
-            print("No evoluciono, ya soy todo poderoso")
-            return self
-        return self.evolucion
+        faltantes = []
+        for i in range(1, self.__ultimaPublicacion + 1):
+            if i not in self.__tomos:
+                faltantes.append(i)
+        return faltantes
 
-    def agregarAColeccion(self):
-        tipos_str = ", ".join(t.value for t in self.tipos)
-        return (f"Codigo: {str(self.codigo).zfill(3)}\nNombre: {self.nombre}\nTipo: {tipos_str}\n"
-                f"{'' if self.evolucion is None else f"Evolucion: {self.evolucion.nombre}\n"}HP: {self.Hp}\n")
+    def eliminarDeColeccion(self, numero):
+        if numero not in self.__tomos:
+            print(f"El tomo {numero} no está en la colección.")
+        else:
+            self.__tomos.remove(numero)
+    # endregion
 
-    #endregion
+manga = ColeccionManga("Junji Ito", "Uzumaki", MangaGenero.seinen, 6, 1, 2, 4)
 
-manga=ColeccionManga("yuyo ito","Uzumaki",MangaGenero.shojo,6,1,2,4)
+manga.agregarAColeccion(3, 4)
+
+print(manga.cuantosFaltanParaCompletar())
+
+manga.eliminarDeColeccion(2)
+manga.eliminarDeColeccion(10)
+
+print(manga.tomos)

@@ -23,7 +23,7 @@ print("\nsuma con el '+'💫\n")
 lista6 = lista3 + lista4
 print(lista6)
 print("\nsuma con método🤑\n")
-lista3.extend(lista4) #otra manera de sumar con funciones pero pierdes la lista 3😨
+lista3.extend(lista4) #otra manera de sumar con funciones pero pierdes la lista
 print(lista3)
 print("\nInsertar datos\n")
 #Añadir elemento en lista dependiendo de la posición
@@ -94,5 +94,7 @@ for i, nombre in enumerate(listaNombre): #* esta forma son equivalente a las otr
 
 num1 = [4]
 num2 = num1.copy() #*esto crea una copia o crear una lista nueva
+num2 = num1[:] #*esto crea una copia o crear una lista nueva
+num2 = list(num1) #*esto crea una copia o crear una lista nueva
 num2[0] *= 2
 print(num1) #* no asignas nueva línea, sino que crea una referencia

@@ -9,7 +9,7 @@ print('Mi nombre %s,tengo %d años y cobro %.2f euros al mes' % (nombre, edad, 1
 #*forma 1
 print(f"mi nombre {nombre} tengo {edad} años y cobro {sueldo} euros al mes")#* la varibale se pone entre corchete
 #*forma 2
-#*modificadores
+#*modificadores hace que solo muestre 2 decimales con el ": .2f"
 print(f"mi nombre {nombre} tengo {edad} años y cobro {sueldo : .2f} euros al mes")
 #*formato 3
 #*el '%' calcula el porcentaje del número y puedes poner él cuantos decimales, siempre redondea
